@@ -1,9 +1,10 @@
 <template>
 <div class="wrapper">
-  <swiper :options="swiperOption">
+  <!-- v-if="isSwiperEmpty" ajax读取的信息放入数组后才开始渲染，避免出现初始为最后一页 -->
+  <swiper :options="swiperOption" v-if="isSwiperEmpty">
     <!-- slides -->
     <swiper-slide v-for="item of swiperList" :key="item.id">
-      <img class="swiper-image" :src="item.imgurl" />
+      <img class="swiper-image" :src="item.imgUrl" />
     </swiper-slide>
     <!-- Optional controls -->
     <div class="swiper-pagination"  slot="pagination"></div>
@@ -14,19 +15,20 @@
 <script>
 export default {
   neme: 'HomeSwiper',
+  props: {
+    swiperList: Array
+  },
   data () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
         loop: true
-      },
-      swiperList: [{
-        id: '0001',
-        imgurl: 'http://img1.qunarzz.com/piao/fusion/1804/8b/f7f0585bbb539202.jpg_640x200_c4096429.jpg'
-      }, {
-        id: '0002',
-        imgurl: 'http://img1.qunarzz.com/piao/fusion/1804/c7/15d167c86f961a02.jpg_640x200_e9d5a5ff.jpg'
-      }]
+      }
+    }
+  },
+  computed: {
+    isSwiperEmpty () {
+      return this.swiperList.length
     }
   }
 }
@@ -36,6 +38,7 @@ export default {
   .wrapper >>> .swiper-pagination-bullet-active
       background-color: #fff !important
   .wrapper
+    // 给图片预留位置，解决图片加载缓慢带来的抖动问题
     overflow: hidden
     width: 100%
     height: 0

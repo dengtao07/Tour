@@ -21,25 +21,8 @@
 <script>
 export default{
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1707/62/62981f052681ef5ba3.img.jpg_200x200_43d6d1e7.jpg',
-        title: '上海中心大厦',
-        desc: '上海中心大厦'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1707/62/62981f052681ef5ba3.img.jpg_200x200_43d6d1e7.jpg',
-        title: '上海中心大厦',
-        desc: '上海中心大厦'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1707/62/62981f052681ef5ba3.img.jpg_200x200_43d6d1e7.jpg',
-        title: '上海中心大厦',
-        desc: '上海中心大厦'
-      }]
-    }
+  props: {
+    recommendList: Array
   }
 }
 </script>

@@ -3,10 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+// 解决手机端点击300ms延迟问题
 import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 import 'styles/reset.css'
+// 解决一像素边框问题
 import 'styles/border.css'
 import 'styles/iconfont.css'
 

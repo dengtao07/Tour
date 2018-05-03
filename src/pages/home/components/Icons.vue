@@ -1,11 +1,11 @@
 <template>
   <swiper class="icons" :options="swiperOption">
     <swiper-slide v-for="(page, index) of pages" :key="index">
-      <div class="icon" v-for="item of page" :key=item.icon_id>
+      <div class="icon" v-for="item of page" :key="item.id">
         <div class="icon-img">
-          <img class="icon-img-content" :src="item.url" />
+          <img class="icon-img-content" :src="item.imgUrl" />
         </div>
-        <p class="icon-text">{{item.text}}</p>
+        <p class="icon-text">{{item.desc}}</p>
       </div>
     </swiper-slide>
   </swiper>
@@ -14,58 +14,21 @@
 <script>
 export default{
   name: 'HomeIcons',
-  data: function () {
+  props: {
+    iconList: Array
+  },
+  data () {
     return {
-      icons: [{
-        icon_id: '0001',
-        url: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        text: '景点门票'
-      }, {
-        icon_id: '0002',
-        url: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        text: '景点门票1'
-      }, {
-        icon_id: '0003',
-        url: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        text: '景点门票2'
-      }, {
-        icon_id: '0004',
-        url: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        text: '景点门票3'
-      }, {
-        icon_id: '0005',
-        url: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        text: '景点门票455555555'
-      }, {
-        icon_id: '0006',
-        url: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        text: '景点门票5'
-      }, {
-        icon_id: '0007',
-        url: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        text: '景点门6'
-      }, {
-        icon_id: '0008',
-        url: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        text: '景点门票7'
-      }, {
-        icon_id: '0009',
-        url: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        text: '景点门票8'
-      }, {
-        icon_id: '0010',
-        url: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-        text: '景点门票9'
-      }],
       swiperOption: {
-        loop: true
+        autoplay: false
       }
     }
   },
   computed: {
+    // 计算当前icon属于第几页
     pages () {
       const pages = []
-      this.icons.forEach((item, index) => {
+      this.iconList.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
