@@ -3,7 +3,7 @@
     <swiper-slide v-for="(page, index) of pages" :key="index">
       <div class="icon" v-for="item of page" :key=item.icon_id>
         <div class="icon-img">
-          <img class="icon-img-content" :src=item.url />
+          <img class="icon-img-content" :src="item.url" />
         </div>
         <p class="icon-text">{{item.text}}</p>
       </div>
@@ -86,7 +86,6 @@ export default{
     width: 100%
     height: 0
     padding-bottom: 50%
-    background-color: #eee
     .icon
       position: relative
       overflow: hidden
@@ -97,7 +96,7 @@ export default{
       //box-sizing: border-box
       .icon-img
         position: absolute
-        top: 0
+        top: .2rem
         left: 0
         right: 0
         bottom: .4rem
