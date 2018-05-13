@@ -1,4 +1,5 @@
 <template>
+  <!--  此处wrapper是一个字符串，所以不需要使用数据绑定 -->
   <div class="list" ref="wrapper">
     <div>
       <div class="area">
@@ -25,8 +26,10 @@
         class="area"
         v-for="(value, key) in cities"
         :key="key"
+        :ref="key"
       >
         <div class="tittle border-topbottom">{{key}}</div>
+        <!--  此处key是一个js表达式，所以需要使用数据绑定 -->
         <ul class="item-list">
           <li
             class="item border-bottom"
@@ -47,10 +50,19 @@ export default {
   name: 'CityList',
   props: {
     hotCities: Array,
-    cities: Object
+    cities: Object,
+    letter: String
   },
   mounted () {
     this.scroll = new Bscroll(this.$refs.wrapper)
+  },
+  watch: {
+    letter () {
+      if (this.letter) {
+        const element = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(element)
+      }
+    }
   }
 }
 </script>
