@@ -36,6 +36,7 @@ export default {
     }
   },
   computed: {
+    // 计算属性与传入的参数是同名的，返回city计算属性
     ...mapState(['city'])
   },
   methods: {
@@ -57,11 +58,13 @@ export default {
     }
   },
   mounted () {
+    // 渲染后记录本次城市的名称
     this.lastCity = this.city
     this.getHomeInfo()
   },
   // keep-alive 定义了一个新的生命周期函数 activated
   activated () {
+    // 判断城市名称是否发生变化, 这里引用的都是state中city，可以实时更新
     if (this.lastCity !== this.city) {
       this.lastCity = this.city
       this.getHomeInfo()

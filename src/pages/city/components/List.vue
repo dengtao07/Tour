@@ -65,12 +65,12 @@ export default {
     })
   },
   methods: {
+    ...mapMutations(['changeCity']),
     handleCityClick (city) {
       // this.$store.commit('changeCity', city)
       this.changeCity(city)
       this.$router.push('/')
-    },
-    ...mapMutations(['changeCity'])
+    }
   },
   watch: {
     letter () {
