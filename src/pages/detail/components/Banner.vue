@@ -18,7 +18,7 @@
 <script>
 import CommonGallary from 'common/gallary/Gallary'
 export default {
-  name: 'Banner',
+  name: 'DetailBanner',
   data () {
     return {
       imgs: ['http://img1.qunarzz.com/sight/p0/1705/8f/8f4f9397fe7041eaa3.img.jpg_r_800x800_59f91bb5.jpg', 'http://img1.qunarzz.com/sight/p0/1705/30/30b915415ece9ddea3.img.jpg_r_800x800_e36b71a0.jpg'],
