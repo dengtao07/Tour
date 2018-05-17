@@ -45,7 +45,7 @@ export default {
     display: flex
     flex-direction: column
     justify-content: center
-    z-index: 10
+    z-index: 3
     position: fixed
     left: 0
     right: 0
