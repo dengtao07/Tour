@@ -1,18 +1,41 @@
 <template>
   <div class="banner">
-    <div class="img-wrapper">
-      <img class="banner-img" src="//img1.qunarzz.com/sight/p64/201211/04/9173ff9f33e97f3193835fbb.jpg_600x330_db50bab7.jpg" alt="">
+    <div class="img-wrapper" @click="handleClick">
+      <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1705/ed/edd4063a442f30c1a3.img.jpg_600x330_4e335e78.jpg" alt="">
       <div class="banner-ifo">
-        <div class="banner-title">成都杜甫草堂(AAAA景区)</div>
+        <div class="banner-title">天堂岛海洋乐园</div>
         <div class="banner-num"><span class="iconfont">&#xe6a5;</span>40</div>
       </div>
     </div>
+    <common-gallary
+      :imgs="imgs"
+      @closeGallary="handleCloseGallary"
+      v-show="showGallary"
+    ></common-gallary>
   </div>
 </template>
 
 <script>
+import CommonGallary from 'common/gallary/Gallary'
 export default {
-  name: 'Banner'
+  name: 'Banner',
+  data () {
+    return {
+      imgs: ['http://img1.qunarzz.com/sight/p0/1705/8f/8f4f9397fe7041eaa3.img.jpg_r_800x800_59f91bb5.jpg', 'http://img1.qunarzz.com/sight/p0/1705/30/30b915415ece9ddea3.img.jpg_r_800x800_e36b71a0.jpg'],
+      showGallary: false
+    }
+  },
+  components: {
+    CommonGallary
+  },
+  methods: {
+    handleClick () {
+      this.showGallary = true
+    },
+    handleCloseGallary () {
+      this.showGallary = false
+    }
+  }
 }
 </script>
 
