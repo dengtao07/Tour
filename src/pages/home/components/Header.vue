@@ -3,11 +3,21 @@
     <div class="header-left">
       <div class="iconfont back-icon">&#xe624;</div>
     </div>
-    <div class="header-input">
+    <router-link
+      to="/search"
+      class="header-input"
+      tag="div"
+    >
+      <div>
+        <span class="iconfont">&#xe632;</span>
+        输入城市/景点/游玩主题
+      </div>
+    </router-link>
+    <!-- <div class="header-input" @click="handleInputClick">
       <span class="iconfont">&#xe632;</span>
       输入城市/景点/游玩主题
-    </div>
-    <router-link to="/city">
+    </div> -->
+    <router-link to="/city" tag="div">
       <div class="header-right">
         <!-- {{this.$store.state.city}} -->
         {{this.city}}
@@ -21,6 +31,11 @@
 import { mapState } from 'vuex'
 export default {
   name: 'HomeHeader',
+  data () {
+    return {
+      showSearch: false
+    }
+  },
   computed: {
     ...mapState(['city'])
   }

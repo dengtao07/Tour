@@ -49,6 +49,7 @@ export default {
       if (res.ret && res.data) {
         const data = res.data
         this.hotcities = data.hotcities
+        this.cities = data.cities
         this.swiperList = data.swiperList
         this.iconList = data.iconList
         this.recommendList = data.recommendList

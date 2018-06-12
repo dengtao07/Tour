@@ -12,10 +12,12 @@ import 'styles/reset.css'
 // 解决一像素边框问题
 import 'styles/border.css'
 import 'styles/iconfont.css'
+import VModal from 'vue-js-modal'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
 Vue.use(VueAwesomeSwiper)
+Vue.use(VModal)
 
 /* eslint-disable no-new */
 new Vue({
