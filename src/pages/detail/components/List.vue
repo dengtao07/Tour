@@ -10,17 +10,26 @@
         {{item.title}}
       </div>
       <div v-if="item.children" class="item-children">
-        <detail-list :list="item.children"></detail-list>
+        <detail-list
+          :list="item.children"
+        >
+        </detail-list>
       </div>
     </div>
+    <dialog-dt :dialogVisible="dialogVisible"></dialog-dt>
   </div>
 </template>
 
 <script>
+import DialogDt from '../../home/components/Modal'
 export default {
   name: 'DetailList',
   props: {
-    list: Array
+    list: Array,
+    dialogVisible: Boolean
+  },
+  components: {
+    DialogDt
   }
 }
 </script>

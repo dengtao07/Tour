@@ -5,9 +5,14 @@
       :bannerImg="bannerImg"
       :gallaryImgs="gallaryImgs"
     ></detail-banner>
-    <detail-header ></detail-header>
+    <detail-header></detail-header>
     <div class="content">
-      <detail-list :list="categoryList"></detail-list>
+      <detail-list
+        :list="categoryList"
+        @click="handleClick"
+        :dialogVisible="dialogVisible"
+      >
+      </detail-list>
     </div>
   </div>
 </template>
@@ -31,7 +36,8 @@ export default {
       bannerImg: '',
       gallaryImgs: [],
       categoryList: [],
-      lastId: ''
+      lastId: '',
+      dialogVisible: false
     }
   },
   methods: {
@@ -52,6 +58,9 @@ export default {
         this.gallaryImgs = data.gallaryImgs
         this.categoryList = data.categoryList
       }
+    },
+    handleClick () {
+      this.dialogVisible = true
     }
   },
   // 因为使用了keep-alive，mounted钩子只会执行一次

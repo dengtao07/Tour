@@ -17,29 +17,14 @@
         </div>
       </router-link>
     </ul>
-    <modal @close="handleClose" v-show="isShow"></modal>
   </div>
 </template>
 
 <script>
-import modal from './Modal'
 export default{
   name: 'HomeRecommend',
-  data () {
-    return {
-      isShow: true
-    }
-  },
   props: {
     recommendList: Array
-  },
-  components: {
-    modal
-  },
-  methods: {
-    handleClose () {
-      this.isShow = false
-    }
   }
 }
 </script>
