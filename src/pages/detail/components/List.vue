@@ -5,7 +5,7 @@
       v-for="(item, index) of list"
       :key="index"
     >
-      <div class="item-title border-bottom">
+      <div class="item-title border-bottom" @click.stop="handleClick">
         <span class="item-title-icon"></span>
         {{item.title}}
       </div>
@@ -16,7 +16,7 @@
         </detail-list>
       </div>
     </div>
-    <dialog-dt :dialogVisible="dialogVisible"></dialog-dt>
+    <dialog-dt v-if="dialogVisible"></dialog-dt>
   </div>
 </template>
 
@@ -25,11 +25,20 @@ import DialogDt from '../../home/components/Modal'
 export default {
   name: 'DetailList',
   props: {
-    list: Array,
-    dialogVisible: Boolean
+    list: Array
+  },
+  data () {
+    return {
+      dialogVisible: false
+    }
   },
   components: {
     DialogDt
+  },
+  methods: {
+    handleClick () {
+      this.dialogVisible = true
+    }
   }
 }
 </script>

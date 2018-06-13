@@ -9,8 +9,6 @@
     <div class="content">
       <detail-list
         :list="categoryList"
-        @click="handleClick"
-        :dialogVisible="dialogVisible"
       >
       </detail-list>
     </div>
@@ -58,9 +56,6 @@ export default {
         this.gallaryImgs = data.gallaryImgs
         this.categoryList = data.categoryList
       }
-    },
-    handleClick () {
-      this.dialogVisible = true
     }
   },
   // 因为使用了keep-alive，mounted钩子只会执行一次
