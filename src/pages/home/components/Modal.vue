@@ -7,8 +7,8 @@
     >
       <span>这是一段信息</span>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="handleDialogClick">取 消</el-button>
-        <el-button type="primary" @click="handleDialogClick">确 定</el-button>
+        <el-button @click="handleDialogClick(false)">取 消</el-button>
+        <el-button type="primary" @click="handleDialogClick(false)">确 定</el-button>
       </span>
     </el-dialog>
   </div>
