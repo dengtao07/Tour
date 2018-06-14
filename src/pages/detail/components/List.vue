@@ -5,7 +5,7 @@
       v-for="(item, index) of list"
       :key="index"
     >
-      <div class="item-title border-bottom" @click.stop="handleClick">
+      <div class="item-title border-bottom" @click="handleDialogClick(true)">
         <span class="item-title-icon"></span>
         {{item.title}}
       </div>
@@ -16,28 +16,31 @@
         </detail-list>
       </div>
     </div>
-    <dialog-dt v-if="dialogVisible"></dialog-dt>
+    <dialog-dt></dialog-dt>
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 import DialogDt from '../../home/components/Modal'
 export default {
   name: 'DetailList',
   props: {
     list: Array
   },
-  data () {
-    return {
-      dialogVisible: false
-    }
-  },
   components: {
     DialogDt
   },
+  computed: {
+    ...mapState({
+      dialogVisible: 'dialogIsShow'
+    })
+  },
   methods: {
-    handleClick () {
-      this.dialogVisible = true
+    ...mapMutations(['toggleShowDialog']),
+    handleDialogClick (dialogIsShow) {
+      // this.$store.commit('changeCity', city)
+      this.toggleShowDialog(dialogIsShow)
     }
   }
 }
