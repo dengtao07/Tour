@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="warp">
     <el-dialog
       title="提示"
       :visible="dialogVisible"
@@ -35,6 +35,11 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="stylus" scoped>
+  .warp >>> .el-dialog
+    position: absolute
+    bottom: 0
+    margin: 0 !important
+  body
+    position relative
 </style>

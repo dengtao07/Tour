@@ -16,7 +16,7 @@
         </detail-list>
       </div>
     </div>
-    <dialog-dt></dialog-dt>
+    <dialog-dt class="dialog"></dialog-dt>
   </div>
 </template>
 
